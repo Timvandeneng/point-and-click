@@ -1,4 +1,13 @@
 body{
-background-color: black;
-color: white;
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+#gameWindow{
+    width: 704px;
+    height: 320px;
+    grid-column-start: 2;
+    background-color: red;
 }
