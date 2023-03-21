@@ -2,12 +2,44 @@ body{
   background-color: black;
   color: white;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto 704px auto;
+  grid-template-rows: auto auto;
+  animation: all 1 ease-in-out;
+}
+
+#mainTitle{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    text-align: center;
 }
 
 #gameWindow{
+    position: relative;
     width: 704px;
     height: 320px;
     grid-column-start: 2;
+    grid-row-start: 2;
     background-color: red;
+}
+
+.Background{
+    position: absolute;
+    z-index: 1;
+}
+
+.Character{
+    position: absolute;
+    z-index: 100;
+}
+
+.Foreground{
+    position: absolute;
+    z-index: 1000;
+}
+
+#tilemap{}
+
+#mainCharacter{
+top: 160px;
+left: 392px;
 }
