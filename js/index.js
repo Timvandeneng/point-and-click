@@ -1,4 +1,4 @@
-document.getElementById("mainTitle").innerText = "Gay dinosaur";
+document.getElementById("mainTitle").innerText = "Milk quenching dinosaur point and click";
 
 const offsetCharacter = 16;
 
@@ -14,8 +14,6 @@ const counterAudio = document.getElementById("counterAudio");
 const counterCharacter = document.getElementById("counterCharacter");
 
 let inventory = [];
-
-showSpeech(mainCharacterSpeech, characterAudio, "now all i need is some paper towels and lotion");
 
 const inventoryList = document.getElementById("inventoryList");
 
@@ -51,8 +49,8 @@ gameWindow.onclick = function (e) {
                 showSpeech(mainCharacterSpeech, characterAudio, "That cow has got some serious mommy milkers bro");
                 setTimeout(function () { counterCharacter.style.opacity = 1; }, 4 * sec);
                 setTimeout(showSpeech, 4 * sec, counterSpeech, counterAudio, "you know i can hear you");
-                setTimeout(showSpeech, 8 * sec, mainCharacterSpeech, characterAudio, "Ow sorry now can i suck on your cow tits?");
-                setTimeout(showSpeech, 12 * sec, counterSpeech, counterAudio, "Here suck my titties ;)");
+                setTimeout(showSpeech, 8 * sec, mainCharacterSpeech, characterAudio, "Ow sorry now can i extract milk from your cow tits?");
+                setTimeout(showSpeech, 12 * sec, counterSpeech, counterAudio, "alright sure pull my titties");
                 setTimeout(showSpeech, 16 * sec, counterSpeech, Moo, "Ah!...Mmmm");
                 setTimeout(function () {getItem("warm milk", "warm milk");}, 16 * sec);
                 setTimeout(function () { counterCharacter.style.opacity = 0; }, 16 * sec);

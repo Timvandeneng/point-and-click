@@ -14,11 +14,10 @@ const counterAudio = document.getElementById("counterAudio");
 const counterCharacter = document.getElementById("counterCharacter");
 
 let inventory = [];
+
 const inventoryList = document.getElementById("inventoryList");
 
-getItem("warm milk", "warm milk");
-
-setTimeout(showSpeech, 1 * sec, mainCharacterSpeech, characterAudio, "now all i need is some paper towels and lotion!");
+getItem("frozen rocks", "frozen rocks");
 
 gameWindow.onclick = function (e) {
     if (mainCharacterSpeech.style.opacity == 0 && counterSpeech.style.opacity == 0) {
@@ -27,54 +26,44 @@ gameWindow.onclick = function (e) {
         var y = e.clientY - rect.top;  //y position within the element.
         mainCharacter.style.left = x - offsetCharacter + "px";
         mainCharacter.style.top = y - offsetCharacter + "px";
+
         switch (e.target.id) {
             case "door1":
                 //something insert here
-                if (checkItem("frozen rocks")) {
-                    showSpeech(mainCharacterSpeech, characterAudio, "alright let's go cheer my cow friend up");
-                    setTimeout(function () {window.open("index 3.html")}, 4 * sec);
+                if (checkItem("warm milk")) {
+                    showSpeech(mainCharacterSpeech, characterAudio, "Finally i can enjoy my warm viscous fresh milk all alone in my room...");
+                    setTimeout(function () {window.open("index 2.html")}, 4 * sec);
                     document.getElementById(compiler).style.display="block";
-                }
-                if(checkItem("warm milk")){
-                    showSpeech(mainCharacterSpeech, characterAudio, "i want to drink my milk first before i go outside again");
-                } 
-                else {
-                    showSpeech(mainCharacterSpeech, characterAudio, "i can't go outside now! i need a gift!");
+                } else {
+                    showSpeech(mainCharacterSpeech, characterAudio, "i'm not going inside again'");
                 }
                 break;
             case "door2":
-                if(checkItem("warm milk")){
-                    showSpeech(mainCharacterSpeech, characterAudio, "i have some frozen rocks and nail clippers in my freezer");
-                    setTimeout(showSpeech, 4 * sec, mainCharacterSpeech, characterAudio, "No lotion here tho...");
-                }
-                else{
-                    showSpeech(mainCharacterSpeech, characterAudio, "ah perfect! i can give him some frozen rocks!");
-                    setTimeout(function () { getItem("frozen rocks", "frozen rocks");}, 4 * sec);
-                }
                 //something insert here
+                showSpeech(mainCharacterSpeech, characterAudio, "this fence is still useless...");
                 break;
             case "tree":
-                if(checkItem("Lotion")){
-                    showSpeech(mainCharacterSpeech, characterAudio, "Yes! now i can finally soften my hands before   i drink my milk and fresh up after with some paper towels ");
-                    setTimeout(showSpeech, 4 * sec, mainCharacterSpeech, drinkAudio, "ahh... refreshing");
-                    setTimeout(function () { removeItem("Lotion", "Lotion");}, 6 * sec);
-                    setTimeout(function () { removeItem("warm milk", "warm milk");}, 6 * sec);
-                    setTimeout(showSpeech, 6 * sec, mainCharacterSpeech, characterAudio, "now let's go grab a gift for my cow friend and give it to him to thank him");
+                if(checkItem("a new friend :)")){
+                    showSpeech(mainCharacterSpeech, characterAudio, "you have finished your milk quencing journey and finsihed the game! congratulations!");
+                    setTimeout(showSpeech, 4 * sec, mainCharacterSpeech, characterAudio, "you can wander around the field for as long as you like! thank you for playing!");
                 }
                 else{
-                    showSpeech(mainCharacterSpeech, characterAudio, "all i need now is some lotion and i can go wild on my milk ;)");
+                    showSpeech(mainCharacterSpeech, characterAudio, "this tree is pretty long and girthy man...");
                 }
                 //something insert here
                 break;
             case "statue":
                 //something insert here
-                showSpeech(mainCharacterSpeech, characterAudio, "Hey have you seen my lotion?");
+                showSpeech(mainCharacterSpeech, characterAudio, "hey bro! thank you for your milk!");
                 setTimeout(function () { counterCharacter.style.opacity = 1; }, 4 * sec);
-                setTimeout(showSpeech, 4 * sec, counterSpeech, counterAudio, "euh.. i havent seen it hehe");
-                setTimeout(showSpeech, 8 * sec, mainCharacterSpeech, characterAudio, "don't lie to me! i can see your hands are nice and soft!");
-                setTimeout(showSpeech, 12 * sec, counterSpeech, counterAudio, "okay sorry here take it! i don't need it anymore anyways");
-                setTimeout(function () { getItem("Lotion", "Lotion");}, 16 * sec);
-                setTimeout(function () { counterCharacter.style.opacity = 0; }, 16 * sec);
+                setTimeout(showSpeech, 4 * sec, counterSpeech, counterAudio, "ah it's no problem i like giving away my milk");
+                setTimeout(showSpeech, 8 * sec, mainCharacterSpeech, characterAudio, "well i have a gift for you! some frozen rocks!");
+                setTimeout(showSpeech, 12 * sec, counterSpeech, counterAudio, "what... really?... that's the nicest thing someone has ever done for me! :,)");
+                setTimeout(showSpeech, 16 * sec, counterSpeech, Moo, "thank you friend!");
+                setTimeout(function () {removeItem("frozen rocks", "frozen rocks");}, 16 * sec);
+                setTimeout(showSpeech, 18 * sec, counterSpeech, counterAudio, "you should go see that weird looking tree now");
+                setTimeout(function () {getItem("a new friend :)", "a new friend :)");}, 20 * sec);
+                setTimeout(function () { counterCharacter.style.opacity = 0; }, 20 * sec);
                 break;
             case "platform":
                 document.getElementById("platform").style.opacity = 0.5;
