@@ -1,45 +1,169 @@
-body{
-  background-color: black;
-  color: white;
-  display: grid;
-  grid-template-columns: auto 704px auto;
-  grid-template-rows: auto auto;
-  animation: all 1 ease-in-out;
+body {
+    display: grid;
+    grid-template-columns: auto 800px auto;
+    grid-template-rows: auto 608px auto;
+    gap: 20px;
+    margin: 0px;
+    font-family: 'Oxygen', sans-serif;
+    background-color: #000;
+    color: #ffffff;
+
 }
 
-#mainTitle{
+p {
+    margin: 0px;
+}
+
+/*main h1 on top */
+#mainTitle {
     grid-column-start: 2;
     grid-row-start: 1;
     text-align: center;
 }
 
-#gameWindow{
+/*game engine parts*/
+#gameWindow {
     position: relative;
-    width: 704px;
-    height: 320px;
+    width: 600px;
+    height: 350px;
     grid-column-start: 2;
     grid-row-start: 2;
-    background-color: red;
+    background-color: blue;
+    transition: all 1s ease-in-out;
 }
 
-.Background{
+/* Dialogue part on the bottom */
+#dialogueBar {
+    height: 64px;
+    bottom: 0px;
+}
+
+#setMainDialog {
+    position: relative;
+    height: 64px;
+    width: 800px;
+}
+
+#mainCharacterSpeech {
+    left: 80px;
+    top: 0px;
+}
+
+#counterCharacter {
+    top: 0px;
+    right: 0px;
+    height: 64px;
+    width: 64px;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+#counterSpeech {
+    right: 80px;
+    top: 0px;
+}
+
+#brownBar {
     position: absolute;
-    z-index: 1;
+    height: 32px;
+    width: 800px;
+    background-color: #442c1c;
+    bottom: 0px;
 }
 
-.Character{
+#inventoryBox {
+    left: 0px;
+    top: 0px;
+    width: 110px;
+    height: 80px;
+    border: #fff 2px solid;
+    background-color: #442c1c;
+    padding: 10px;
+}
+
+#inventoryList {
+    list-style-type: square;
+    padding: 0px;
+    margin: 0px 0px 0px 12px;
+    font-size: 12px;
+
+}
+
+/*Classes*/
+.background {
+    position: absolute;
+    z-index: 0;
+}
+
+.character {
     position: absolute;
     z-index: 100;
 }
 
-.Foreground{
+.foreground {
     position: absolute;
     z-index: 1000;
+    height: 64px;
+    width: 64px;
 }
 
-#tilemap{}
+.speech-bubble {
+    background: #ffffff;
+    border-radius: 60px;
+    color: #000;
+    padding: 5px 5px 5px 20px;
+    font-size: 12px;
+    opacity: 0;
+    width: 250px;
+    transition: all 1s ease-in-out;
+}
 
-#mainCharacter{
-top: 160px;
-left: 392px;
+
+/* ID's */
+
+#tilemap {}
+
+#mainCharacter {
+    top: 160px;
+    left: 392px;
+    transition: all 1s ease-in-out;
+}
+
+/* elements in the game (trees, hotspots)*/
+
+#door1 {
+    top: 97px;
+    left: 477px;
+    width: 32px;
+    height: 32px;
+
+}
+
+#door2 {
+    top: 75px;
+    left: 225px;
+    width: 32px;
+    height: 32px;
+
+}
+
+#tree1 {
+    top: 200px;
+    left: 500px;
+}
+
+#statue {
+    top: 23px;
+    left: 203px;
+    width: 32px;
+    height: 32px;
+}
+
+#platformContainer {
+    top: 192px;
+    left: 416px;
+}
+
+#platform {
+    transition: all 1s ease-in-out;
 }
