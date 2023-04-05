@@ -14,10 +14,11 @@ const counterAudio = document.getElementById("counterAudio");
 const counterCharacter = document.getElementById("counterCharacter");
 
 let inventory = [];
-
-showSpeech(mainCharacterSpeech, characterAudio, "now all i need is some paper towels and lotion");
-
 const inventoryList = document.getElementById("inventoryList");
+
+getItem("warm milk", "warm milk");
+
+setTimeout(showSpeech, 1 * sec, mainCharacterSpeech, characterAudio, "now all i need is some paper towels and lotion!");
 
 gameWindow.onclick = function (e) {
     if (mainCharacterSpeech.style.opacity == 0 && counterSpeech.style.opacity == 0) {
@@ -26,35 +27,53 @@ gameWindow.onclick = function (e) {
         var y = e.clientY - rect.top;  //y position within the element.
         mainCharacter.style.left = x - offsetCharacter + "px";
         mainCharacter.style.top = y - offsetCharacter + "px";
-
         switch (e.target.id) {
             case "door1":
                 //something insert here
-                if (checkItem("warm milk")) {
-                    showSpeech(mainCharacterSpeech, characterAudio, "Finally i can enjoy my warm viscous fresh milk all alone in my room...");
-                    setTimeout(function () {window.open("index 2.html")}, 4 * sec);
+                if (checkItem("frozen rocks")) {
+                    showSpeech(mainCharacterSpeech, characterAudio, "alright let's go cheer my cow friend up");
+                    setTimeout(function () {window.open("index 2.html")}, 16 * sec);
                     document.getElementById(compiler).style.display="block";
-                } else {
-                    showSpeech(mainCharacterSpeech, characterAudio, "i can't go inside now! i need some warm fresh milk ;)");
+                }
+                if(checkItem("warm milk")){
+                    showSpeech(mainCharacterSpeech, characterAudio, "i want to drink my milk first before i go outside");
+                } 
+                else {
+                    showSpeech(mainCharacterSpeech, characterAudio, "i can't go outside now! i need a gift!");
                 }
                 break;
             case "door2":
+                if(checkItem("warm milk")){
+                    showSpeech(mainCharacterSpeech, characterAudio, "i have some frozen rocks and nail clippers in my freezer");
+                    setTimeout(showSpeech, 4 * sec, mainCharacterSpeech, characterAudio, "No lotion here tho...");
+                }
+                else{
+                    showSpeech(mainCharacterSpeech, characterAudio, "ah perfect! i can give him some frozen rocks!");
+                    setTimeout(function () { getItem("frozen rocks", "frozen rocks");}, 4 * sec);
+                }
                 //something insert here
-                showSpeech(mainCharacterSpeech, characterAudio, "yeah this fence is shit useless i can just hop over it!");
                 break;
             case "tree":
+                if(checkItem("Lotion")){
+                    showSpeech(mainCharacterSpeech, characterAudio, "Yes! now i can finally soften my hands before   i drink my milk and fresh up after with some paper towels ");
+                    setTimeout(showSpeech, 4 * sec, mainCharacterSpeech, drinkAudio, "ahh... refreshing");
+                    setTimeout(function () { removeItem("Lotion", "Lotion");}, 6 * sec);
+                    setTimeout(function () { removeItem("warm milk", "warm milk");}, 6 * sec);
+                    setTimeout(showSpeech, 6 * sec, mainCharacterSpeech, characterAudio, "now let's go grab a gift for my cow friend and give it to him to thank him");
+                }
+                else{
+                    showSpeech(mainCharacterSpeech, characterAudio, "all i need now is some lotion and i can go wild on my milk ;)");
+                }
                 //something insert here
-                showSpeech(mainCharacterSpeech, characterAudio, "I like to hump this tree in my free time");
                 break;
             case "statue":
                 //something insert here
-                showSpeech(mainCharacterSpeech, characterAudio, "That cow has got some serious mommy milkers bro");
+                showSpeech(mainCharacterSpeech, characterAudio, "Hey have you seen my lotion?");
                 setTimeout(function () { counterCharacter.style.opacity = 1; }, 4 * sec);
-                setTimeout(showSpeech, 4 * sec, counterSpeech, counterAudio, "you know i can hear you");
-                setTimeout(showSpeech, 8 * sec, mainCharacterSpeech, characterAudio, "Ow sorry now can i suck on your cow tits?");
-                setTimeout(showSpeech, 12 * sec, counterSpeech, counterAudio, "Here suck my titties ;)");
-                setTimeout(showSpeech, 16 * sec, counterSpeech, Moo, "Ah!...Mmmm");
-                setTimeout(function () {getItem("warm milk", "warm milk");}, 16 * sec);
+                setTimeout(showSpeech, 4 * sec, counterSpeech, counterAudio, "euh.. i havent seen it hehe");
+                setTimeout(showSpeech, 8 * sec, mainCharacterSpeech, characterAudio, "don't lie to me! i can see your hands are nice and soft!");
+                setTimeout(showSpeech, 12 * sec, counterSpeech, counterAudio, "okay sorry here take it! i don't need it anymore anyways");
+                setTimeout(function () { getItem("Lotion", "Lotion");}, 16 * sec);
                 setTimeout(function () { counterCharacter.style.opacity = 0; }, 16 * sec);
                 break;
             case "platform":
